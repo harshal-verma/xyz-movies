@@ -6,13 +6,18 @@ body{
     background-color: #373b69;
 }
 
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr );
+}
+
 .movie{
     width: 275px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     background-color: #545cac;
     color: white;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .movie img{
@@ -22,12 +27,12 @@ body{
 }
 
 .movie-info{
-    padding: 0em 1em;
+    padding: 0em 1em 0.5em;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     letter-spacing: 1px;
-    height: 3.2rem;
+    height: 6rem;
 }
 
 .movie-info h3{
@@ -39,4 +44,15 @@ body{
     background-color: #373b69;
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
+    font-weight: bolder;
 }
+
+.movie-info span.green{
+   color: green;
+}
+.movie-info span.orange{
+    color: orange;
+ }
+ .movie-info span.red{
+    color: red;
+ }
