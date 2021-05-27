@@ -7,13 +7,21 @@ const SEARCHAPI =
 async function getMovies(){
     const response = await fetch(APIURL);
     const respData = await response.json();
-    
+    console.log(respData);
+     
     respData.results.forEach((movie) => {
-        const img = document.createElement('img');
-        img.src = IMGPATH + movie.poster_path;
+        const div = document.createElement('div');
+        // img.src = IMGPATH + movie.poster_path;
+        div.innerHTML = `<div class="movie">
+        <img src="${IMGPATH + movie.poster_path}" alt="movie poster">
+        <div class="movie-info">
+            <h3>Movie title</h3>
+            <span>8.4</span>
+        </div>
+    </div>`
 
-        document.body.appendChild(img);
-    });
+        document.body.appendChild(div)
+    })
 
     return respData;
 }
