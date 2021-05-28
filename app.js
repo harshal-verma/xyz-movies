@@ -29,7 +29,7 @@ function showMovies(movies){
         <div class="movie-info">
             <h3>${movie.title}</h3>
             <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
-        </div>
+            </div>
         </div>
         `
 
