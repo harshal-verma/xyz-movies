@@ -8,25 +8,34 @@ const main = document.querySelector('main');
 const form = document.querySelector('form');
 const search = document.getElementById("search");
 
-async function getMovies(){
-    const response = await fetch(APIURL);
+//initially get fav movies
+getMovies(APIURL);
+
+async function getMovies(url){
+    const response = await fetch(url);
     const respData = await response.json();
-    respData.results.forEach((movie) => {
+    showMovies(respData.results);
+}
+
+function showMovies(movies){
+    main.innerHTML = "";
+    movies.forEach((movie) => {
         const movieEl = document.createElement('div');
 
-        movieEl.innerHTML = `<div class="movie">
+        movieEl.innerHTML = `
+        <div class="movie">
         <img src="${IMGPATH + movie.poster_path}" 
         alt="${movie.title}">
         <div class="movie-info">
             <h3>${movie.title}</h3>
             <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
         </div>
-    </div>`
+        </div>
+        `
 
         main.appendChild(movieEl)
     })
 
-    return respData;
 }
 
 function getClassByRate(vote){
@@ -39,4 +48,12 @@ function getClassByRate(vote){
     }
 }
 
-getMovies();
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = search.value;
+    if(searchTerm){
+        getMovies(SEARCHAPI + searchTerm);     
+   
+        search.value = '';
+    }
+});
