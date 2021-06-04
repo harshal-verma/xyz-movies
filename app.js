@@ -37,22 +37,6 @@ function showMovies(movies){
     })
     document.addEventListener("click" , (e) => {
 
-        main.innerHTML = " ";
-        movies.forEach((movie) => {
-        const fullMovieEl = document.createElement('div');
-        console.log(e);
-        fullMovieEl.innerHTML = `
-        <div class="fullMovieElCard">
-        <img src="${IMGPATH + movie.poster_path}" 
-        alt="${movie.title}">
-        <div class="movie-info">
-            <h3>${movie.title}</h3>
-            <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
-            </div>
-        </div>
-        `;
-        main.appendChild(fullMovieEl)
-    })
 })
 
 }
@@ -67,15 +51,6 @@ function getClassByRate(vote){
     }
 }
 
-// function bla(){
-// document.addEventListener("click" , (e) => {
-//         main.innerHTML = " ";
-//         console.log(e.target);
-
-// })
-// }
-
-// bla();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();

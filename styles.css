@@ -66,7 +66,7 @@ main{
 }
 
 .movie{
-    width: 295px;
+    width: 285px;
     height: 400px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -86,10 +86,11 @@ main{
 .movie-info{
     padding: 0em 1em 0.5em;
     display: flex;
+    font-size: 0.8rem;
     flex-direction: row;
     justify-content:space-between;
     letter-spacing: 1px;
-    height: 6rem;
+    height: 5rem;
 }
 
 .movie-info h3{
