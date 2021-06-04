@@ -8,7 +8,8 @@ const main = document.querySelector('main');
 const form = document.querySelector('form');
 const search = document.getElementById("search");
 
-//initially get fav movies
+
+// initially get fav movies
 getMovies(APIURL);
 
 async function getMovies(url){
@@ -32,9 +33,27 @@ function showMovies(movies){
             </div>
         </div>
         `
-
         main.appendChild(movieEl)
     })
+    document.addEventListener("click" , (e) => {
+
+        main.innerHTML = " ";
+        movies.forEach((movie) => {
+        const fullMovieEl = document.createElement('div');
+        console.log(e);
+        fullMovieEl.innerHTML = `
+        <div class="fullMovieElCard">
+        <img src="${IMGPATH + movie.poster_path}" 
+        alt="${movie.title}">
+        <div class="movie-info">
+            <h3>${movie.title}</h3>
+            <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
+            </div>
+        </div>
+        `;
+        main.appendChild(fullMovieEl)
+    })
+})
 
 }
 
@@ -47,6 +66,16 @@ function getClassByRate(vote){
         return 'red';
     }
 }
+
+// function bla(){
+// document.addEventListener("click" , (e) => {
+//         main.innerHTML = " ";
+//         console.log(e.target);
+
+// })
+// }
+
+// bla();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();

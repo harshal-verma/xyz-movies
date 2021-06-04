@@ -6,15 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xyz-movies</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
     <nav>
         <h1>xyz-movies</h1>
         <form id="form">
-            <input type="text" name="search" id="search" placeholder="search">
+            <input type="text" name="search" id="search" placeholder="search movies...">
+            <i class="fas fa-search"></i>
         </form>
     </nav>
-    <main></main>
+    <main>
+        <!-- <div class="movie" id="movieCard">
+            <img src="${IMGPATH + movie.poster_path}" 
+            alt="${movie.title}">
+            <div class="movie-info">
+                <h3>${movie.title}</h3>
+                <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
+                </div>
+            </div> -->
+    </main>
 
     <script src="/app.js"></script>
 </body>
