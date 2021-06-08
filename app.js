@@ -7,7 +7,7 @@ const SEARCHAPI =
 const main = document.querySelector('main');
 const form = document.querySelector('form');
 const search = document.getElementById("search");
-
+const movieCard = document.querySelectorAll(".movies");
 
 // initially get fav movies
 getMovies(APIURL);
@@ -15,7 +15,10 @@ getMovies(APIURL);
 async function getMovies(url){
     const response = await fetch(url);
     const respData = await response.json();
-    showMovies(respData.results);
+      showMovies(respData.results);
+    //   viewMovieCard(respData.results);
+    //   console.log(respData.results);
+    
 }
 
 function showMovies(movies){
@@ -24,7 +27,7 @@ function showMovies(movies){
         const movieEl = document.createElement('div');
 
         movieEl.innerHTML = `
-        <div class="movie">
+        <div class="movie" onclick="viewMovieCard(event)">
         <img src="${IMGPATH + movie.poster_path}" 
         alt="${movie.title}">
         <div class="movie-info">
@@ -35,10 +38,6 @@ function showMovies(movies){
         `
         main.appendChild(movieEl)
     })
-    document.addEventListener("click" , (e) => {
-
-})
-
 }
 
 function getClassByRate(vote){
@@ -61,3 +60,20 @@ form.addEventListener('submit', (e) => {
         search.value = '';
     }
 });
+
+// function viewMovieCard(event){
+//    main.innerHTML = " ";
+//    console.log(event.target.alt);
+//    .forEach((movie) => {
+//        if(movie.title === event.target.alt){
+//            main.innerHTML = `
+//            <img src="${IMGPATH + movie.poster_path}" 
+//            alt="${movie.title}">
+//            <div class="movie-info">
+//                <h3>${movie.title}</h3>
+//                <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
+//                </div>
+//            `
+//        }
+//    })
+// }
