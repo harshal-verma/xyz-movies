@@ -16,7 +16,6 @@ async function getMovies(url){
     const response = await fetch(url);
     const respData = await response.json();
       showMovies(respData.results);
-    //   viewMovieCard(respData.results);
     //   console.log(respData.results);
     return respData.results;
 }
