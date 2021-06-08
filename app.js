@@ -7,7 +7,7 @@ const SEARCHAPI =
 const main = document.querySelector('main');
 const form = document.querySelector('form');
 const search = document.getElementById("search");
-const movieCard = document.querySelectorAll(".movies");
+const movieCard = document.querySelector(".movie");
 
 // initially get fav movies
 getMovies(APIURL);
@@ -18,7 +18,7 @@ async function getMovies(url){
       showMovies(respData.results);
     //   viewMovieCard(respData.results);
     //   console.log(respData.results);
-    
+    return respData.results;
 }
 
 function showMovies(movies){
@@ -60,20 +60,3 @@ form.addEventListener('submit', (e) => {
         search.value = '';
     }
 });
-
-// function viewMovieCard(event){
-//    main.innerHTML = " ";
-//    console.log(event.target.alt);
-//    .forEach((movie) => {
-//        if(movie.title === event.target.alt){
-//            main.innerHTML = `
-//            <img src="${IMGPATH + movie.poster_path}" 
-//            alt="${movie.title}">
-//            <div class="movie-info">
-//                <h3>${movie.title}</h3>
-//                <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
-//                </div>
-//            `
-//        }
-//    })
-// }

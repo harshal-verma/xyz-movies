@@ -39,19 +39,9 @@ nav #search{
     font-family: inherit;
     background-color:  rgb(248, 248, 27);
     align-self: center;
-    margin-top: 2.3rem;
-    margin-left: 1rem;
-    margin-right: -5rem;
+    margin-top: 35px;
+    margin-right: 20px;
 }
-
-.fa-search{
-    font-size: 1.2rem;
-    color: grey;
-    width: 100px;
-    position: relative;
-    left: 40px;
-}
-
 
 header input::placeholder{
     color: black;
@@ -115,4 +105,17 @@ main{
     color: red;
  }
 
+footer{
+    padding: 0.5rem;
+    background-color: #393c44;
+    text-align: center;
+}
 
+footer a{
+    text-decoration: none;
+    color: #f59e0b;
+}
+
+footer a:hover{
+    color: #b3b9f5;
+}
