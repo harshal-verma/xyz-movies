@@ -23,7 +23,7 @@ function showMovies(movies){
     for(let i = 0 ; i< arrLength ; i++){
         const movieEl = document.createElement('div');
         movieEl.innerHTML = `
-        <div class="movie" onclick="viewMovieCard(event)">
+        <div class="movie">
         <img id=${i} src="${IMGPATH + movies[i].poster_path}" 
         alt="${movies[i].title}">
         <div class="movie-info">
@@ -35,23 +35,6 @@ function showMovies(movies){
         main.appendChild(movieEl)
     }
 }
-
-async function viewMovieCard(e){
-    const response = await fetch(APIURL);
-    const respData = await response.json();
-    let movies = respData.results;
-    console.log(movies);
-    console.log(e);
-    console.log(e.target.title)
-    main.innerHTML = " ";
-    const singleMovieEl = document.createElement("div");
-    singleMovieEl.innerHTML = `
-    <img src="${IMGPATH + movies[e.target.id].poster_path}" 
-    alt="${movies[e.target.id].title}">
-    `
-    main.appendChild(singleMovieEl);
-}
-
 
 function getClassByRate(vote){
     if(vote >= 8){
@@ -73,3 +56,30 @@ form.addEventListener('submit', (e) => {
         search.value = '';
     }
 });
+
+// movieCard.addEventListener("click" , (e) => {
+//     console.log(e);
+//     fetch(APIURL).then((res) => res.json()).then((results) => {
+//         let movies = results.data;
+//         let elementId = e.target.title;
+//         console.log(elementId)
+//         main.innerHTML = " ";
+//         const singleMovieEl = document.createElement("div");
+//         singleMovieEl.innerHTML = `
+//         <div class="single-movie-div">
+//         <img class="single-movie-el" src="${IMGPATH + movies[elementId].poster_path}" alt="${movies[elementId].title}"/>
+//         <div class="single-movie-description">
+//             <h2 class="single-movie-title">${movies[elementId].title}</h2>
+//             <p class="single-movie-overview">${movies[elementId].overview}</p>
+//             <ul class="single-movie-ul">
+//                 <li>Release Date: ${movies[elementId].release_date}</li>
+//                 <li class=${getClassByRate(movies[elementId].vote_average)}>Rating: ${movies[elementId].vote_average}</li>
+//                 <li><a href="index.html" class="go-back-btn">go back to home</a></li>
+//             </ul>
+//         </div>
+//         </div>
+//         `
+//         main.appendChild(singleMovieEl);
+//     }
+//     )}
+// )

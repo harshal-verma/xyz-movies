@@ -30,6 +30,11 @@ nav h1{
     font-size: 2.7rem;
 }
 
+nav h1 a{
+    text-decoration: none;
+    color: rgb(248, 248, 27);
+}
+
 nav #search{
     padding: 0.8rem;
     width: 250px;
@@ -142,3 +147,42 @@ footer a:hover{
         width: 90%;
     }
 }
+
+.single-movie-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-movie-title{
+    color: rgb(248, 248, 27);
+}
+
+.single-movie-overview{
+   color: #fff;
+}
+
+.single-movie-el{
+    width: 300px;
+    height: 400px;
+    margin: 8px 20px;
+}
+
+.single-movie-description{
+   color: #fff;
+}
+
+.single-movie-ul{
+   list-style-type: none;
+}
+
+.single-movie-ul li{
+    display: inline;
+}
+
+.go-back-btn{
+    text-decoration: none;
+    color: rgb(248, 248, 27);
+    display: block !important;
+}
+
+
