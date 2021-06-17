@@ -8,6 +8,7 @@ const main = document.querySelector('main');
 const form = document.querySelector('form');
 const search = document.getElementById("search");
 const movieCard = document.querySelector(".movie");
+const footer = document.querySelector("footer");
 
 getMovies(APIURL);
 
@@ -63,6 +64,9 @@ main.addEventListener('click' , (e) => {
     console.log(e.target.id);
     let elementId = e.target.id;
             main.innerHTML = " ";
+            footer.innerHTML = " ";
+            footer.style.backgroundColor = "#373b69";
+            main.style.display = 'flex';
         const singleMovieEl = document.createElement("div");
         singleMovieEl.innerHTML = `
         <div class="single-movie-div">
@@ -71,8 +75,8 @@ main.addEventListener('click' , (e) => {
             <h2 class="single-movie-title">${movies[elementId].title}</h2>
             <p class="single-movie-overview">${movies[elementId].overview}</p>
             <ul class="single-movie-ul">
-                <li>Release Date: ${movies[elementId].release_date}</li>
-                <li class="color">Rating: ${movies[elementId].vote_average}</li>
+                <li>Release Date:  ${movies[elementId].release_date}</li>
+                <li class="color">Rating:  ${movies[elementId].vote_average}</li>
                 <li><a href="index.html" class="go-back-btn">go back to home</a></li>
             </ul>
         </div>
