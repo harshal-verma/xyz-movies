@@ -131,23 +131,6 @@ footer a:hover{
     color: #b3b9f5;
 }
 
-@media screen and (max-width: 546px){
-    nav{
-        display: block;
-    }
-    nav h1{
-        text-align: center;
-    }
-    nav #search{
-        display: block;
-        margin: 16px auto;
-    }
-    .movie{
-        display: block;
-        width: 90%;
-    }
-}
-
 .single-movie-div{
     display: flex;
     justify-content: space-between;
@@ -155,6 +138,7 @@ footer a:hover{
 
 .single-movie-title{
     color: rgb(248, 248, 27);
+    letter-spacing: 1px;
 }
 
 .single-movie-overview{
@@ -176,13 +160,51 @@ footer a:hover{
 }
 
 .single-movie-ul li{
+    color: rgb(248, 248, 27);
+    font-weight: bolder;
+    letter-spacing: 1px;
+    text-decoration: underline;
     display: inline;
 }
 
 .go-back-btn{
-    text-decoration: none;
     color: rgb(248, 248, 27);
-    display: block !important;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: block;
 }
+
+.color{
+    align-self: center;
+    background-color: #373b69;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 546px){
+    nav{
+        display: block;
+    }
+    nav h1{
+        text-align: center;
+    }
+    nav #search{
+        display: block;
+        margin: 16px auto;
+    }
+    .movie{
+        display: block;
+        width: 90%;
+    }
+    .single-movie-div{
+        display: block;
+        padding: 8px;
+        text-align: left;
+    }
+}
+
+
 
 

@@ -15,6 +15,7 @@ async function getMovies(url){
     const response = await fetch(url);
     const respData = await response.json();
       showMovies(respData.results);
+      singleMovieCard(respData.results);
 }
 
 function showMovies(movies){
@@ -46,7 +47,6 @@ function getClassByRate(vote){
     }
 }
 
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchTerm = search.value;
@@ -57,29 +57,27 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-// movieCard.addEventListener("click" , (e) => {
-//     console.log(e);
-//     fetch(APIURL).then((res) => res.json()).then((results) => {
-//         let movies = results.data;
-//         let elementId = e.target.title;
-//         console.log(elementId)
-//         main.innerHTML = " ";
-//         const singleMovieEl = document.createElement("div");
-//         singleMovieEl.innerHTML = `
-//         <div class="single-movie-div">
-//         <img class="single-movie-el" src="${IMGPATH + movies[elementId].poster_path}" alt="${movies[elementId].title}"/>
-//         <div class="single-movie-description">
-//             <h2 class="single-movie-title">${movies[elementId].title}</h2>
-//             <p class="single-movie-overview">${movies[elementId].overview}</p>
-//             <ul class="single-movie-ul">
-//                 <li>Release Date: ${movies[elementId].release_date}</li>
-//                 <li class=${getClassByRate(movies[elementId].vote_average)}>Rating: ${movies[elementId].vote_average}</li>
-//                 <li><a href="index.html" class="go-back-btn">go back to home</a></li>
-//             </ul>
-//         </div>
-//         </div>
-//         `
-//         main.appendChild(singleMovieEl);
-//     }
-//     )}
-// )
+function singleMovieCard(movies){
+main.addEventListener('click' , (e) => {
+    console.log(e);
+    console.log(e.target.id);
+    let elementId = e.target.id;
+            main.innerHTML = " ";
+        const singleMovieEl = document.createElement("div");
+        singleMovieEl.innerHTML = `
+        <div class="single-movie-div">
+        <img class="single-movie-el" src="${IMGPATH + movies[elementId].poster_path}" alt="${movies[elementId].title}"/>
+        <div class="single-movie-description">
+            <h2 class="single-movie-title">${movies[elementId].title}</h2>
+            <p class="single-movie-overview">${movies[elementId].overview}</p>
+            <ul class="single-movie-ul">
+                <li>Release Date: ${movies[elementId].release_date}</li>
+                <li class="color">Rating: ${movies[elementId].vote_average}</li>
+                <li><a href="index.html" class="go-back-btn">go back to home</a></li>
+            </ul>
+        </div>
+        </div>
+        `
+        main.appendChild(singleMovieEl);
+})};
+
